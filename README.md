@@ -1,23 +1,45 @@
 # nubo_is
 
-Ein neues Projekt namens nubo_is.
+Next.js 15 App Router project with Supabase Auth and Onboarding Flows.
 
-## Beschreibung
+## Setup
 
-Dieses Projekt wurde gerade erstellt und wartet auf weitere Entwicklung.
-
-## Installation
-
+1. Install dependencies:
 ```bash
-# Anweisungen zur Installation werden hier hinzugefügt
+npm install
 ```
 
-## Verwendung
-
+2. Set up environment variables:
 ```bash
-# Anweisungen zur Verwendung werden hier hinzugefügt
+cp .env.example .env.local
 ```
 
-## Lizenz
+3. Add your Supabase credentials to `.env.local`:
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-[Lizenz hier angeben]
+4. Run the database schema:
+```sql
+-- Execute supabase-schema.sql in your Supabase SQL editor
+```
+
+5. Start the development server:
+```bash
+npm run dev
+```
+
+## Features
+
+- Supabase Authentication (email/password)
+- Dashboard with Onboarding Flows management
+- Server Actions for database operations
+- Audit logging
+- TypeScript support
+- Tailwind CSS styling
+
+## Database Schema
+
+- `onboarding_flows`: id, employee_email, status, created_at
+- `audit_logs`: id, action, created_at
