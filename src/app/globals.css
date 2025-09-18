@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Neutral-first UI with brand accents */
+  --page: #F6F8FB;
+  --surface: #FFFFFF;
+  --soft: #F0F4F8; /* sidebar + quick panels */
+  --muted: #667085;
+  --text: #1D2939;
+  --border: #E5E7EB;
+  --ring: #C7D2FE;
+  --brand: #4263EB; /* primary accent */
+  --brand-600: #3558E0;
+  --accent: #5ED3F3; /* subtle accent */
+  --radius-card: 14px;
 }
 
 @theme inline {
@@ -19,8 +29,35 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+body { background: var(--page); color: var(--text); font-family: var(--font-inter), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+
+.card { background: var(--surface); border-radius: var(--radius-card); border: 1px solid var(--border); box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+
+.text-secondary { color: var(--foreground); }
+
+.accent-bg { background: var(--color-accent); }
+
+/* Typography: Space Grotesk for headings */
+h1, h2, h3, h4 { font-family: var(--font-space), var(--font-inter), system-ui, sans-serif; }
+
+/* Muted text helper */
+.text-muted { color: var(--muted); }
+
+/* Ensure readable default text color inside cards */
+.card { color: var(--text); }
+
+/* Buttons */
+.btn { display:inline-flex; align-items:center; justify-content:center; font-weight:600; border-radius:10px; padding:10px 14px; border:1px solid transparent; }
+.btn-primary { background: var(--brand); color:#fff; }
+.btn-primary:hover { background: var(--brand-600); }
+.btn-outline { background:#fff; color: var(--foreground); border-color: var(--border); }
+.btn-outline:hover { border-color: var(--brand); color: var(--brand); }
+
+/* Tables */
+.table { width:100%; font-size:14px; }
+.th { color: var(--muted); text-align:left; padding:12px; border-bottom:1px solid var(--border); }
+.td { padding:12px; border-bottom:1px solid var(--border); }
+.badge { font-size:12px; padding:4px 8px; border-radius:999px; }
+.badge-ok { background:#DCFCE7; color:#166534; }
+.badge-warn { background:#FEF9C3; color:#92400E; }
+.badge-err { background:#FEE2E2; color:#991B1B; }
